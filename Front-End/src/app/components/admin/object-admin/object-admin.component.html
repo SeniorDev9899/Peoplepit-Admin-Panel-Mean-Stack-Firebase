@@ -1,0 +1,58 @@
+<div class="object-admin">
+    <h1>Object's Administration panel</h1>
+    <div class="width-100 position-relative object-container">
+        <table class="table table-bordered table-hover object-container-table">
+            <thead>
+                <tr class="table-active object-header">
+                    <th scope="col">Label</th>
+                    <th scope="col">Unique Name</th>
+                    <th scope="col">Key</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of Object" class="object-content">
+                    <td scope="row">{{ obj.label }}</td>
+                    <td>{{ obj.name }}</td>
+                    <td>{{ obj.key }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="edit-container">
+            <div *ngFor="let obj of Object; let i = index;" class="edit-item">
+                <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-1', i)"></i>
+            </div>
+        </div>
+    </div>
+    <div class="width-100 edit-object-add">
+        <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-1', -1)"></i>
+    </div>
+
+    <jw-modal id="custom-modal-1">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Object</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-1');"></i>
+        </div>
+        <div class="object-modal-content">
+            <form [formGroup] = "formdata" (ngSubmit)="onClickSubmit(formdata.value)" class="object-modal-form">
+                <div class="object-modal-item">
+                    <span class="labels">Label</span>
+                    <input type = "text" class="fortextbox" name = "objectLabel" placeholder = "Object Label" formControlName="objectLabel">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Unique Name</span>
+                    <input type = "text" class="fortextbox" name = "objectUniqueName" placeholder = "Object Unique Name" formControlName="objectUniqueName">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Key</span>
+                    <input type = "text" class="fortextbox" name = "objectKeyName" placeholder = "Object Key" formControlName="objectKeyName">
+                </div>
+                <br />
+                <div class="object-modal-item-submit">
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>

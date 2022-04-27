@@ -1,0 +1,26 @@
+<div>
+    <app-section *ngIf="ready" [Section]="section"></app-section>
+    <app-object-admin *ngIf="admin && objectAdmin" [Object]="objects" (objectChanged)="handleObjectChanged($event)" (objectAdded)="handleObjectAdded($event)"></app-object-admin>
+    <app-field-admin 
+        *ngIf="admin && fieldAdmin" 
+        [Field]="fields" 
+        (fieldChanged)="handleFieldChanged($event)" 
+        (fieldAdded)="handleFieldAdded($event)"
+    ></app-field-admin>
+    <app-container-admin
+        *ngIf="admin && containerAdmin"
+        [Container]="containers"
+        (updatedContainerInfo)="handleUpdatedContainerInfo($event)"
+        (deletedContainerInfo)="handleDeletedContainerInfo($event)"
+        (createdContainerInfo)="handleCreatedContainerInfo($event)"
+        (updatedContainerRowInfo)="handleUpdatedContainerRowInfo($event)"
+        (updatedContainerRowSectionInfo)="handleUpdatedContainerRowSectionInfo($event)"
+        (updatedContainerRowSectionItemInfo)="handleUpdatedContainerRowSectionItemInfo($event)"
+    ></app-container-admin>
+    <app-action-admin
+        *ngIf="admin && actionAdmin"
+        [Action]="actions"
+        (actionAdded)="handleActionAdded($event)"
+        (actionChanged)="handleActionChanged($event)"
+    ></app-action-admin>
+</div>      

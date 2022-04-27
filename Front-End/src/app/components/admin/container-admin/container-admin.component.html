@@ -1,0 +1,334 @@
+<div class="object-admin">
+    <h1>Container's Administration panel</h1>
+    <div class="width-100 position-relative object-container">
+        <table class="table table-bordered table-hover container-table">
+            <thead>
+                <tr class="table-active object-header">
+                    <th scope="col">Label</th>
+                    <th scope="col">Unique Name</th>
+                    <th scope="col">Width</th>
+                    <th scope="col">Alignment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cot of Container" class="object-content">
+                    <td scope="row">{{ cot.label }}</td>
+                    <td>{{ cot.name }}</td>
+                    <td>{{ cot.width }} %</td>
+                    <td>{{ cot.align }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="edit-container">
+            <div *ngFor="let cot of Container; let i = index;" class="edit-item">
+                <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-4', i)"></i>
+            </div>
+        </div>
+        <div class="delete-container">
+            <div *ngFor="let cot of Container; let i = index;" class="edit-item">
+                <i class="fa fa-trash object-edit-icon" [id]="i" (click)="openModal('custom-delete-modal', i, 'container')"></i>
+            </div>
+        </div>
+    </div>
+    <div class="width-100 edit-object-add">
+        <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-4', -1)"></i>
+    </div>
+
+    <jw-modal id="custom-delete-modal">
+        <div class="delete-modal-content">
+            Are you going to delete this document ?
+        </div>
+        <div class="delete-modal-action">
+            <button (click)="deleteDocument()">OK</button>
+            <button (click)="closeModal('custom-delete-modal')">Cancel</button>
+        </div>
+    </jw-modal>
+
+    <jw-modal id="custom-modal-4">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Container</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-4');"></i>
+        </div>
+        <div class="object-modal-content">
+            <div *ngIf = "alertMessageForAddContainer" class="alert-message">Please Input Label and Unique Name</div>
+            <form [formGroup] = "formdataContainer" (ngSubmit)="onClickSubmit(formdataContainer.value)" class="field-modal-form" style="width:700px;">
+                <div class="field-modal-item">
+                    <span class="labels">Label</span>
+                    <div>
+                        <input style="width:250px;" type = "text" class="fortextbox" name="containerLabel" placeholder="Container Label" formControlName="containerLabel" [(ngModel)]="containerLabelModel">
+                    </div>
+                </div>
+                <br />
+                <div class="field-modal-item">
+                    <div style="display:flex;align-items:center;justify-content:flex-start;width:100%;">
+                        <div style="display:flex;align-items:center;justify-content:center;">   
+                            <span class="labels">Unique Name</span>
+                            <div>
+                                <input style="width:250px;" type = "text" class="fortextbox" name="containerUniqueName" placeholder="Container Unique Name" formControlName="containerUniqueName" [(ngModel)]="containerUniqueNameModel">
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;justify-content:center;">
+                            <span class="labels" style="width:75px;">Width</span>
+                            <div>
+                                <input style="width:120px;" type = "text" class="fortextbox" name="containerWidth" placeholder="Container Width" formControlName="containerWidth" [(ngModel)]="containerWidthModel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="field-modal-item-start">
+                    <span class="labels">Rows</span>
+                    <div class="field-options-table" style="width:calc(100% - 120px);">
+                        <div class="width-100 position-relative object-container">
+                            <table class="table table-bordered table-hover margin-0">
+                                <thead>
+                                    <tr class="table-active object-header">
+                                        <th scope="col">Label</th>
+                                        <th scope="col">Unique Name</th>
+                                        <th scope="col">Width</th>
+                                        <th scope="col">Alignment</th>
+                                        <th scope="col">Order</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let crow of ContainerRows" class="object-content">
+                                        <td scope="row">{{ crow.label }}</td>
+                                        <td>{{ crow.name }}</td>
+                                        <td>{{ crow.width }} %</td>
+                                        <td>{{ crow.align }}</td>
+                                        <td>{{ crow.order }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="edit-container">
+                                <div *ngFor="let cot of ContainerRows; let i = index;" class="edit-item">
+                                    <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-2', i)"></i>
+                                </div>
+                            </div>
+                            <div class="delete-container">
+                                <div *ngFor="let cot of ContainerRows; let i = index;" class="edit-item">
+                                    <i class="fa fa-trash object-edit-icon" [id]="i" (click)="openModal('custom-delete-modal', i, 'row')"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-object-add padding-0 width-100 display-flex-start">
+                            <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-2', -1)"></i>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="field-modal-item-submit">
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+    <jw-modal id="custom-modal-2">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Row</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-2');"></i>
+        </div>
+        <div class="object-modal-content">
+            <div *ngIf = "alertMessageForAddRow" class="alert-message">Please Input Label and Unique Name</div>
+            <form [formGroup] = "formdataRow" (ngSubmit)="onClickSubmitRow(formdataRow.value)" class="row-modal-form">
+                <div class="row-modal-item width-100">
+                    <div style="position:relative;right:15px;">
+                        <span class="labels">Label</span>
+                        <input type = "text" class="fortextbox" name = "rowLabel" placeholder = "Row Label" formControlName="rowLabel" [(ngModel)]="rowLabelModel">
+                    </div>
+                    <div style="position:relative;left:32px;">
+                        <span class="labels">Width</span>
+                        <input type = "text" class="fortextbox" name = "rowWidth" placeholder = "Row Label" formControlName="rowWidth" [(ngModel)]="rowWidthModel">
+                    </div>
+                </div>
+                <br />
+                <div class="row-modal-item-sec">
+                    <div style="display:flex;align-items:center;justify-content:space-around;position:relative;right:42px;">
+                        <span class="labels">Unique Name</span>
+                        <input type = "text" class="fortextbox" name = "rowUniqueName" placeholder = "Row Unique Name" formControlName="rowUniqueName" [(ngModel)]="rowUniqueNameModel">
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:center;">
+                        <span class="labels" style="width:45px;">Order</span>
+                        <input type = "text" class="fortextbox" name = "rowOrder" placeholder = "Row Order" formControlName="rowOrder" [(ngModel)]="rowOrderModel">
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item" style="display: flex;align-items:center;justify-content:flex-start;width:100%;position:relative;right:10px;">
+                    <span class="labels" style="width:95px;">Alignment</span>
+                    <div class="display-flex">
+                        <select name="rowAlignmentType" formControlName="rowAlignmentType" (change)="onChange($event)" [(ngModel)]="rowAlignmentTypeModel">
+                            <option *ngFor="let align of aligns">
+                                {{ align.name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item width-100" style="display:flex;align-items:flex-start;justify-content:center;">
+                    <span class="labels" style="width:85px;">Sections</span>
+                    <div class="field-options-table" style="width:calc(100% - 85px);">
+                        <div class="width-100 position-relative object-container">
+                            <table class="table table-bordered table-hover margin-0">
+                                <thead>
+                                    <tr class="table-active object-header">
+                                        <th scope="col">Label</th>
+                                        <th scope="col">Unique Name</th>
+                                        <th scope="col">Width</th>
+                                        <th scope="col">Order</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let crsec of ContainerRowSections" class="object-content">
+                                        <td scope="row">{{ crsec.label }}</td>
+                                        <td>{{ crsec.name }}</td>
+                                        <td>{{ crsec.width }} %</td>
+                                        <td>{{ crsec.order }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="edit-container">
+                                <div *ngFor="let cot of ContainerRowSections; let i = index;" class="edit-item">
+                                    <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-3', i)"></i>
+                                </div>
+                            </div>
+                            <div class="delete-container">
+                                <div *ngFor="let cot of ContainerRowSections; let i = index;" class="edit-item">
+                                    <i class="fa fa-trash object-edit-icon" [id]="i" (click)="openModal('custom-delete-modal', i, 'section')"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-object-add padding-0 width-100 display-flex-start">
+                            <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-3', -1)"></i>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item-submit" 
+                    style="width:100%;display:flex;align-items:center;justify-content:flex-end;position:relative;right:30px;"
+                >
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+    <jw-modal id="custom-modal-3">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Section</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-3');"></i>
+        </div>
+        <div class="object-modal-content">
+            <div *ngIf = "alertMessageForAddSection" class="alert-message">Please Input Label and Unique Name</div>
+            <form [formGroup] = "formdataSection" (ngSubmit)="onClickSubmitSection(formdataSection.value)" class="object-modal-form"
+                style="width:600px;display:flex;align-items:center;justify-content:center;flex-direction:column;"
+            >
+                <div class="object-modal-item width-100"
+                    style="display:flex;align-items:center;justify-content:center;width:100%;"
+                >
+                    <div>
+                        <span class="labels">Label</span>
+                        <input type = "text" class="fortextbox" name = "sectionLabel" placeholder = "Row Label" formControlName="sectionLabel" [(ngModel)]="sectionLabelModel">
+                    </div>
+                    <div style="position:relative;left:25px;">
+                        <span class="labels">Width</span>
+                        <input type = "text" class="fortextbox" name = "sectionWidth" placeholder = "Row Label" formControlName="sectionWidth">
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item"
+                    style="display:flex;align-items:center;justify-content:center;"
+                >
+                    <div style="position:relative;right:28px;">
+                        <span class="labels">Unique Name</span>
+                        <input type = "text" class="fortextbox" name = "sectionUniqueName" placeholder = "Section Unique Name" formControlName="sectionUniqueName" [(ngModel)]="sectionUniqueNameModel">
+                    </div>
+                    <div>
+                        <span class="labels">Order</span>
+                        <input type = "text" class="fortextbox" name = "sectionOrder" placeholder = "Section Order" formControlName="sectionOrder">
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item"
+                    style="display:flex;align-items:flex-start;justify-content:center;width:100%;"
+                >
+                    <span class="labels" style="width:40px;">Items</span>
+                    <div class="field-options-table">
+                        <div style="display:flex;align-items:flex-end;justify-content:center;">
+                            <table class="table table-bordered table-hover margin-0">
+                                <thead>
+                                    <tr class="table-active object-header">
+                                        <th scope="col">Item/Field</th>
+                                        <th scope="col">Reference Unique Name</th>
+                                        <th scope="col">Order</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let crsiec of ContainerRowSectionItems" class="items-content">
+                                        <td scope="row">{{ crsiec.label }}</td>
+                                        <td>{{ crsiec.name }}</td>
+                                        <td>{{ crsiec.order }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="edit-container" style="margin-left:20px;">
+                                <div *ngFor="let cot of ContainerRowSectionItems; let i = index;" class="container-item">
+                                    <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-5', i)"></i>
+                                </div>
+                            </div>
+                            <div class="delete-container" style="margin-left:20px;">
+                                <div *ngFor="let cot of ContainerRowSectionItems; let i = index;" class="container-item">
+                                    <i class="fa fa-trash object-edit-icon" [id]="i" (click)="openModal('custom-delete-modal', i, 'item')"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-object-add padding-0 width-100 display-flex-start">
+                            <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-5', -1)"></i>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item-submit" style="width:100%;display:flex;justify-content:flex-end;position:relative;right:20px;">
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+    <jw-modal id="custom-modal-5">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Items/Fields</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-5');"></i>
+        </div>
+        <div class="object-modal-content">
+            <form [formGroup] = "formdataItem" (ngSubmit)="onClickSubmitItem(formdataItem.value)" class="object-modal-form"
+                style= "width:300px;"
+            >
+                <div class="object-modal-item"
+                    style="width:100%;display:flex;align-items:center;justify-content:flex-start;"
+                >
+                    <span class="labels" style="width:100px;">Item/Field</span>
+                    <select class="fortextbox" name="itemField" formControlName="itemField" (change)="onChange($event)"
+                        style="width:200px;"
+                    >
+                        <option *ngFor="let field of itemFields">
+                            {{ field.name }}
+                        </option>
+                    </select>
+                </div>
+                <br />
+                <div class="object-modal-item"
+                    style="width:100%;display:flex;align-items:center;justify-content:flex-start;"
+                >
+                    <span class="labels" style="width:100px;">Order</span>
+                    <input type = "text" class="fortextbox" name = "itemOrderNumber" placeholder = "Item Order" formControlName="itemOrderNumber"
+                        style="width:150px;"
+                    >
+                </div>
+                <br />
+                <div class="object-modal-item-submit"
+                    style="width:100%;text-align:center;"
+                >
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>

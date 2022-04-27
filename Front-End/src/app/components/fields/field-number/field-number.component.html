@@ -1,0 +1,5 @@
+<!-- Precision is up to 16 digits - more digits are not properly sent to angular object behind-->
+<mat-form-field *ngIf="Field.type=='number'">
+    <mat-label>{{Field.label}}</mat-label>
+    <input matInput type="number" [(ngModel)]="Field.values" id="{{Field.name}}">
+</mat-form-field>

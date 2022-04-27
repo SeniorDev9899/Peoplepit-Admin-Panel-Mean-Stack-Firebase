@@ -1,0 +1,4 @@
+<a mat-list-item [routerLink]="['/', Action.object ]">
+    <mat-icon *ngIf="Action.showIcon" class="icon">{{Action.icon}}</mat-icon>
+    <span *ngIf="Action.showLabel" style="margin-left: 0.5em;">{{Action.label}} </span>
+</a>

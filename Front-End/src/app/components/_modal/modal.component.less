@@ -1,0 +1,128 @@
+/* MODAL STYLES
+-------------------------------*/
+jw-modal {
+    /* modals are hidden by default */
+    display: none;
+
+    .jw-modal {
+        /* modal container fixed across whole screen */
+        position: absolute;
+        top: 15%;
+        left: 25%;
+        bottom: 0;
+        width: 65%;
+
+        /* z-index must be higher than .jw-modal-background */
+        z-index: 1000;
+        
+        /* enables scrolling for tall modals */
+        overflow: auto;
+
+        .object-modal-header {
+            position: sticky;
+            top: 0px;
+            background-color: white;
+            z-index: 1;
+        }
+
+        .jw-modal-body {
+            border-radius: 5px;
+            background: #fff;
+
+            /* margin exposes part of the modal background */
+            margin: 40px;
+            max-height: 500px;
+            overflow: auto;
+        }
+    }
+
+    .jw-modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.5;
+        
+        /* z-index must be below .jw-modal and above everything else  */
+        z-index: 900;
+    }
+}
+
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+#custom-modal-2 .jw-modal {
+    top: 25%;
+    z-index: 1002;
+    width: 80% !important;
+    left: 10% !important;
+}
+
+#custom-modal-2 .jw-modal-background {
+    z-index: 1001;
+    opacity: 0.3;
+}
+
+#custom-modal-3 .jw-modal {
+    z-index: 10001;
+    top: 37%;
+    left:17%;
+}
+
+#custom-modal-3 .jw-modal .jw-modal-body {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.jw-modal-body::-webkit-scrollbar {
+    display: none;
+}
+
+#custom-modal-3 .jw-modal-background {
+    opacity:0.2;
+    z-index:10000
+}
+
+#custom-modal-4 .jw-modal {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    bottom: 0;
+    width: 85%;
+}
+
+#custom-modal-5 .jw-modal {
+    z-index:100001;
+    top:60%;
+    left:17%;
+}
+
+#custom-modal-5 .jw-modal-background {
+    opacity: 0.2;
+    z-index: 100000;
+}
+
+#custom-delete-modal .jw-modal {
+    top:45%;
+    z-index:100002;
+}
+
+#custom-delete-modal .jw-modal .jw-modal-body {
+    height: 150px;
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#custom-delete-modal .jw-modal-background {
+    z-index: 100001;
+}

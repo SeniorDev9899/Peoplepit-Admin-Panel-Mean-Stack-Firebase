@@ -1,0 +1,186 @@
+.object-admin {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.object-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.object-container-table {
+    margin: 0px;
+    width: 98%;
+}
+
+.field-options-table {
+    margin: 0px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.object-container-table thead {
+    height: 50px;
+}
+
+.field-options-table .thead {
+    height: 30px;
+}
+
+.object-container-table thead tr th {
+    padding-bottom: 15px;
+}
+
+.field-options-table thead tr th {
+    padding-bottom: 10px;
+}
+
+.object-container-table tbody tr {
+    height: 50px;
+}
+
+.field-options-table tbody tr {
+    height: 30px;
+}
+
+.object-container-table tbody tr td {
+    padding-top: 15px;
+}
+
+.field-options-table tbody tr td {
+    padding-top: 10px;
+}
+
+.edit-container .edit-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.object-edit-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.object-edit-icon:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.edit-object-add {
+    padding: 15px;
+}
+
+.edit-object-add i {
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.object-add-icon:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.object-modal-header {
+    padding: 10px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.object-modal-content {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+}
+
+.labels {
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 130px;
+    text-align: right;
+}
+
+.object-modal-close {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.object-modal-close:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.field-modal-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.field-modal-item-start {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.field-modal-item-submit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.field-modal-form {
+    width: 540px;
+}
+
+.field-modal-item .fortextbox {
+    width: 340px;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 340px;
+}
+
+.type-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 115px;
+}
+
+.margin-0 {
+    margin: 0px !important;
+}
+
+.padding-0 {
+    padding: 0px !important;
+    padding-top: 5px !important;
+}
+
+.display-flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.alert-message {
+    margin-bottom: 10px;
+    color: rgb(217 0 0 / 91%);
+}

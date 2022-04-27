@@ -1,0 +1,40 @@
+.closed {
+  min-width: 60px; 
+  height: calc(100vh);
+}
+
+.open {
+  min-width: calc(10vw);
+  max-width: calc(15vw);
+  height: calc(100vh);
+}
+
+.jim {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.arrow {
+  min-width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 3em;
+}
+
+.bottom {
+  position: absolute; 
+  bottom: 0px; 
+  width: 100%; 
+  text-align: right; 
+  height: 60px; 
+}
+
+* {
+  white-space: nowrap;
+  overflow: hidden;    
+  text-overflow: ellipsis;
+  position: relative;
+  left: 0;
+}

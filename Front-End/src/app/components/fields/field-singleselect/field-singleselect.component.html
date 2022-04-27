@@ -1,0 +1,9 @@
+<!-- needed to add [compareWith] argument to let it initialize the select value -->
+<mat-form-field>
+    <mat-label>{{Field.label}}</mat-label>
+    <mat-select placeholder="{{Field.label}}" [compareWith]="compareObjects" [(ngModel)]="Field.values" id="{{Field.name}}">
+        <mat-option *ngFor="let option of Field.options" [value]="option">
+            {{option.label}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

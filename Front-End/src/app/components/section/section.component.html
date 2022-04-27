@@ -1,0 +1,21 @@
+<ng-container *ngIf="Section.sections">
+    <div *ngIf="Section.type=='row'" class="break"></div>
+    <div [ngStyle]="{'width': sectionWidth + '%', 'margin-left': marginleft, 'margin-right': marginright, 
+    'display': display, 'justify-content': justifyContent, 'flex-wrap': 'wrap'}"
+    (window:resize)="onResize($event)">
+        <ng-container *ngFor="let section of Section.sections">
+            <app-section [Section]="section" [ngStyle]="{'width': section.width + '%'}"></app-section>
+        </ng-container>
+    </div>
+</ng-container>
+<div *ngIf="Section.section_fields" [ngStyle]="{'width': '100%'}">
+    <div *ngFor="let sectionfield of Section.section_fields" style="padding-left: 1em; padding-right: 1em;">
+        <div *ngIf="sectionfield.field.type=='date'"><br /><app-field-date [Field]="sectionfield.field"></app-field-date></div>
+        <div *ngIf="sectionfield.field.type=='simpletext'"><br /><app-field-simpletext [Field]="sectionfield.field"></app-field-simpletext></div>  
+        <div *ngIf="sectionfield.field.type=='number'"><br /><app-field-number [Field]="sectionfield.field"></app-field-number></div>     
+        <div *ngIf="sectionfield.field.type=='singleselect'"><br /><app-field-singleselect [Field]="sectionfield.field"></app-field-singleselect></div>    
+        <div *ngIf="sectionfield.field.type=='single-autocomplete'"><br /><app-field-single-autocomplete [Field]="sectionfield.field"></app-field-single-autocomplete></div>
+        <div *ngIf="sectionfield.field.type=='multiselect'"><br /><app-field-multiselect [Field]="sectionfield.field"></app-field-multiselect></div>
+        <div *ngIf="sectionfield.field.type=='multi-autocomplete'"><br /><app-field-multi-autocomplete [Field]="sectionfield.field"></app-field-multi-autocomplete></div>
+    </div>
+</div>

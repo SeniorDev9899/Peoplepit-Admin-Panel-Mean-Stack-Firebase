@@ -1,0 +1,103 @@
+<div class="object-admin">
+    <h1>Action's Administration panel</h1>
+    <div class="width-100 position-relative object-container">
+        <table class="table table-bordered table-hover object-container-table">
+            <thead>
+                <tr class="table-active object-header">
+                    <th>Label</th>
+                    <th>Object</th>
+                    <th>Order</th>
+                    <th>RelativeLink</th>
+                    <th>ShowIcon</th>
+                    <th>ShowLabel</th>
+                    <th>Icon</th>
+                    <th>Container</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let act of Action" class="object-content">
+                    <td>{{ act.label }}</td>
+                    <td>{{ act.object }}</td>
+                    <td>{{ act.order }}</td>
+                    <td>{{ act.relativelink }}</td>
+                    <td>{{ act.showIcon }}</td>
+                    <td>{{ act.showLabel}}</td>
+                    <td>{{ act.icon }}</td>
+                    <td>{{ act.container }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="edit-container">
+            <div *ngFor="let obj of Action; let i = index;" class="edit-item">
+                <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-6', i)"></i>
+            </div>
+        </div>
+    </div>
+    <div class="width-100 edit-object-add">
+        <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-6', -1)"></i>
+    </div>
+
+    <jw-modal id="custom-modal-6">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Action</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-6');"></i>
+        </div>
+        <div class="object-modal-content">
+            <form [formGroup] = "formdata" (ngSubmit)="onClickSubmit(formdata.value)" class="object-modal-form">
+                <div class="object-modal-item">
+                    <span class="labels">Label</span>
+                    <input type = "text" class="fortextbox" name = "actionLabel" placeholder = "Action Label" formControlName="actionLabel">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Object</span>
+                    <div class="display-flex" style="width:220px;">
+                        <select name="actionObject" formControlName="actionObject" (change)="onChange($event)">
+                            <option *ngFor="let obj of objects">
+                                {{ obj.name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Order</span>
+                    <input type = "text" class="fortextbox" name = "actionOrder" placeholder = "Action Key" formControlName="actionOrder">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">RelativeLink</span>
+                    <input type = "text" class="fortextbox" name = "actionRelativeLink" placeholder = "Action Relative Link" formControlName="actionRelativeLink">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">ShowIcon</span>
+                    <div class="radio_width">
+                        <input type="radio" name="actionShowIcon" id="Radio1" formControlName="actionShowIcon" />
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">ShowLabel</span>
+                    <div class="radio_width">
+                        <input type="radio" name="actionShowLabel" id="Radio2" formControlName="actionShowLabel" />
+                    </div>
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Icon</span>
+                    <input type = "text" class="fortextbox" name = "actionIcon" placeholder = "Action Icon" formControlName="actionIcon">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Container</span>
+                    <input type = "text" class="fortextbox" name = "actionContainer" placeholder = "Action Container" formControlName="actionContainer">
+                </div>
+                <br />
+                <div class="object-modal-item-submit">
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>

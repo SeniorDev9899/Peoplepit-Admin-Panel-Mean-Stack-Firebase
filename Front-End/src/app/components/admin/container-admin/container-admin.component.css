@@ -1,0 +1,273 @@
+.object-admin {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.object-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.container-table {
+    margin: 0px !important;
+    width: 95%;
+}
+
+.field-options-table {
+    margin: 0px;
+    width: 425px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.object-container-table thead {
+    height: 50px;
+}
+
+.field-options-table .thead {
+    height: 50px;
+}
+
+.object-container-table thead tr th {
+    padding-bottom: 15px;
+}
+
+.field-options-table thead tr th {
+    padding-bottom: 10px;
+}
+
+.object-container-table tbody tr {
+    height: 50px;
+}
+
+.field-options-table tbody tr {
+    height: 50px;
+}
+
+.object-container-table tbody tr td {
+    padding-top: 15px;
+}
+
+.field-options-table tbody tr td {
+    padding-top: 10px;
+}
+
+.edit-container .edit-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.object-edit-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.object-edit-icon:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.edit-object-add {
+    padding: 15px;
+}
+
+.edit-object-add i {
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.object-add-icon:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.object-modal-header {
+    padding: 10px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.object-modal-content {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.labels {
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100px;
+    text-align: right;
+}
+
+.object-modal-close {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.object-modal-close:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.field-modal-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.field-modal-item-start {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.field-modal-item-submit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.field-modal-form {
+    width: 100% !important;
+}
+
+.field-modal-item .fortextbox {
+    width: 340px;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 340px;
+}
+
+.type-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 115px;
+}
+
+.margin-0 {
+    margin: 0px !important;
+}
+
+.padding-0 {
+    padding: 0px !important;
+    padding-top: 5px !important;
+}
+
+.display-flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.alert-message {
+    margin-bottom: 10px;
+    color: rgb(217 0 0 / 91%);
+}
+
+.object-content {
+    height: 50px;
+}
+
+.object-content td {
+    padding-top: 15px;
+}
+
+.delete-container .edit-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    position: relative;
+    bottom: 4px;
+}
+
+.items-content td {
+    height: 39px;
+}
+
+.container-item {
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.delete-modal-action {
+    margin-top: 20px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.delete-modal-action button {
+    border-radius: 5px;
+    width: 75px;
+}
+
+.alert-message {
+    margin-bottom: 10px;
+    color: rgb(217 0 0 / 91%);
+}
+
+.row-modal-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.row-modal-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    left: 64px;
+}
+
+.row-modal-item-sec {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    left: 26px;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.display-static {
+    display: static !important;
+}

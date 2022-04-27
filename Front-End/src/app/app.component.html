@@ -1,0 +1,18 @@
+<div>
+  <mat-sidenav-container class="example-container" autosize>
+
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+      (closed)="events.push('close!')">
+      <app-menu></app-menu>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-header [sidenav]="sidenav"></app-header>
+      <div class="content" role="main">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
+

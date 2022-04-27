@@ -1,0 +1,33 @@
+<div [class]="sideNavClass">
+
+  <div fxLayout="column" fxLayoutGap="10px" style="height: 100%;">
+
+    <div >
+      <mat-nav-list>
+        <a mat-list-item>
+          <img class="jim"
+            src="../../../assets/icons/icon-855x856.jpg"
+            alt="">
+            <span *ngIf="sideNavState" style="margin-left: 0.5em;">PeoplePit</span>
+        </a>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+    </div>    
+
+    <div>
+      <mat-nav-list>
+        <ng-container *ngFor="let item of menuItems">
+          <app-action-list [Action]="item"></app-action-list>               
+        </ng-container>        
+      </mat-nav-list>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="bottom">
+      <mat-divider></mat-divider>
+        <mat-icon class="arrow" *ngIf="sideNavState" (click)="onSidenavToggle()">chevron_left</mat-icon>
+        <mat-icon class="arrow" *ngIf="!sideNavState" (click)="onSidenavToggle()">chevron_right</mat-icon>     
+    </div>
+  </div>
+</div>

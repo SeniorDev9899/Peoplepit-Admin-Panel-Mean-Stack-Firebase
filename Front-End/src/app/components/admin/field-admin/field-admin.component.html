@@ -1,0 +1,118 @@
+<div class="object-admin">
+    <h1>Field's Administration panel</h1>
+    <div class="width-100 position-relative object-container">
+        <table class="table table-bordered table-hover object-container-table">
+            <thead>
+                <tr class="table-active object-header">
+                    <th scope="col">Label</th>
+                    <th scope="col">Unique Name</th>
+                    <th scope="col">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fie of Field" class="object-content">
+                    <td scope="row">{{ fie.label }}</td>
+                    <td>{{ fie.name }}</td>
+                    <td>{{ fie.type }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="edit-container">
+            <div *ngFor="let fie of Field; let i = index;" class="edit-item">
+                <i class="fa fa-edit object-edit-icon" [id]="i" (click)="openModal('custom-modal-1', i)"></i>
+            </div>
+        </div>
+    </div>
+    <div class="width-100 edit-object-add">
+        <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-1', -1)"></i>
+    </div>
+
+    <jw-modal id="custom-modal-1">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Field</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-1');"></i>
+        </div>
+        <div class="object-modal-content">
+            <div *ngIf = "alertMessage" class="alert-message">Please Input Label and Unique Name</div>
+            <form [formGroup] = "formdata" (ngSubmit)="onClickSubmit(formdata.value)" class="field-modal-form">
+                <div class="field-modal-item">
+                    <span class="labels">Label</span>
+                    <div>
+                        <input type = "text" class="fortextbox" name="fieldLabel" placeholder="Field Label" formControlName="fieldLabel" [(ngModel)]="label" (ngModelChange)="enableOptionInput">
+                    </div>
+                </div>
+                <br />
+                <div class="field-modal-item">   
+                    <span class="labels">Unique Name</span>
+                    <div>
+                        <input type = "text" class="fortextbox" name="fieldUniqueName" placeholder="Field Unique Name" formControlName="fieldUniqueName" [(ngModel)]="uniqueName" (ngModelChange)="enableOptionInput">
+                    </div>
+                </div>
+                <br />
+                <div class="field-modal-item">
+                    <span class="labels">Type</span>
+                    <div class="display-flex">
+                        <select name="fieldTypeName" formControlName="fieldTypeName" (change)="onChange($event)">
+                            <option *ngFor="let o of options">
+                                {{ o.name }}
+                            </option>
+                        </select>
+                        <label *ngIf="displayAutoComplete" class="type-checkbox">
+                            <input type="checkbox" name="fieldAutoComplete" formControlName="fieldAutoComplete">Auto-Complete
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div *ngIf="displayOptions" class="field-modal-item-start">
+                    <span class="labels">Options</span>
+                    <div class="field-options-table">
+                        <table class="table table-bordered table-hover margin-0">
+                            <thead>
+                                <tr class="table-active object-header">
+                                    <th scope="col">Label</th>
+                                    <th scope="col">Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let opt of FieldOptions" class="object-content">
+                                    <td scope="row">{{ opt.label }}</td>
+                                    <td>{{ opt.name }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="edit-object-add padding-0 width-100 display-flex-start">
+                            <i class="fa fa-plus-circle object-add-icon" (click)="openModal('custom-modal-2', -1)"></i>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="field-modal-item-submit">
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+    <jw-modal id="custom-modal-2">
+        <div class="object-modal-header">
+            <h1 style="margin:0px;">Add/Edit Field Options</h1>
+            <i class="fa fa-times-circle object-modal-close" (click)="closeModal('custom-modal-2');"></i>
+        </div>
+        <div class="object-modal-content">
+            <form [formGroup] = "formoptiondata" (ngSubmit)="onClickSubmitOption(formoptiondata.value)" class="object-modal-form">
+                <div class="object-modal-item">
+                    <span class="labels">Label</span>
+                    <input type = "text" class="fortextbox" name = "optionLabel" placeholder = "Option Label" formControlName="optionLabel">
+                </div>
+                <br />
+                <div class="object-modal-item">
+                    <span class="labels">Name</span>
+                    <input type = "text" class="fortextbox" name = "optionName" placeholder = "Option Unique Name" formControlName="optionName">
+                </div>
+                <br />
+                <div class="object-modal-item-submit">
+                    <input type = "submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>

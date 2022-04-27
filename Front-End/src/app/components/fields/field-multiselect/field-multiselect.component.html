@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>{{Field.label}}</mat-label>
+    <mat-select multiple placeholder="{{Field.label}}" [(ngModel)]="Field.values" id="{{Field.name}}">
+        <mat-option *ngFor="let option of Field.options" value="{{option.name}}">
+            {{option.label}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

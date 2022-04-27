@@ -1,0 +1,119 @@
+.object-admin {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.object-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.object-container-table {
+    margin: 0px;
+    width: 98%;
+}
+
+.object-container-table thead {
+    height: 50px;
+}
+
+.object-container-table thead tr th {
+    padding-bottom: 15px;
+}
+
+.object-container-table tbody tr {
+    height: 50px;
+}
+
+.object-container-table tbody tr td {
+    padding-top: 15px;
+}
+
+.edit-container .edit-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.object-edit-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.object-edit-icon:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.edit-object-add {
+    padding: 15px;
+}
+
+.edit-object-add i {
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.object-add-icon:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.object-modal-header {
+    padding: 10px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.object-modal-content {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+}
+
+.labels {
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.object-modal-close {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.object-modal-close:hover {
+    color: rgba(100, 100, 100, .6);
+}
+
+.object-modal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.object-modal-item-submit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.object-modal-form {
+    width: 355px;
+}
+
+.object-modal-item .fortextbox {
+    width: 220px;
+}

@@ -1,0 +1,15 @@
+.icon {
+    min-width: 30px;
+    height: 30px;
+    object-fit: cover;
+    text-align: center;  
+  }
+  
+  * {
+    white-space: nowrap;
+    overflow: hidden;    
+    text-overflow: ellipsis;
+    position: relative;
+    left: 0;
+  }
+  
